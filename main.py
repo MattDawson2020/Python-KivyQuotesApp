@@ -8,8 +8,23 @@ Builder.load_file('design.kv')
 
 class LoginScreen(Screen):
     def sign_up(self):
-        self.manager.transition.direction = "up"
+        self.manager.transition.direction = "down"
         self.manager.current = "Sign_up_screen"
+
+    def login(self, uname, pword):
+        with open("users.json") as file:
+            users = json.load(file)
+        if uname in users and users[uname]['password'] == pword:
+            self.manager.transition.direction = "down"
+            self.manager.current = "login_success"
+        else:
+            self.ids.login_wrong.text = "Your details are incorrect"
+
+class LoginSuccess(Screen):
+    def log_out(self):
+        self.manager.transition.direction = "up"
+        self.manager.current = "login_screen"
+
 
 class SignUpScreen(Screen):
     def add_user(self, uname, pword):
@@ -22,7 +37,7 @@ class SignUpScreen(Screen):
                        }
         with open("users.json", 'w') as file:
             json.dump(users, file)
-        self.manager.transition.direction = "up"
+        self.manager.transition.direction = "down"
         self.manager.current = "sign_up_success"
 
 class SignUpSuccess(Screen):
