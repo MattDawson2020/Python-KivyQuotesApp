@@ -6,6 +6,9 @@ from datetime import datetime
 import glob
 from pathlib import Path
 import random
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
 
 Builder.load_file('design.kv')
 
@@ -60,6 +63,8 @@ class SignUpSuccess(Screen):
 class RootWidget(ScreenManager):
     pass
 
+class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
 
 class MainApp(App):
     def build(self):
