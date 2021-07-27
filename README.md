@@ -1,6 +1,6 @@
 ## 🐍 Python-Kivy quotes app
 
-- Sixth example [Udemy course](https://www.udemy.com/course/the-python-mega-course/)
+- Sixth example project from [Udemy course](https://www.udemy.com/course/the-python-mega-course/)
 - Uses Kivy library to create a simple app that can later easily be converted to anAndoird or IOS device
 - Design is primarily based around mobile user but is also usable for PC
 - Libraries used: kivy, json, datetime, glob, pathlib, random. Also includes hoverable module for button hover behaviours
